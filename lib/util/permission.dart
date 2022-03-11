@@ -11,7 +11,7 @@ Future<bool> requestLocationPermission(BuildContext context) async {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            content: Text("accecs permission"),
+            content: Text("access permission"),
             actions: [FlatButton(onPressed: () {}, child: Text("setting"))],
           );
         });
