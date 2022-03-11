@@ -3,9 +3,19 @@ import 'dart:html';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-class Permission extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold();
+Future<bool> requestLocationPermission(BuildContext context) async {
+  PermissionStatus status = await Permission.location.request();
+
+  if (!status.isGranted) {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            content: Text("accecs permission"),
+            actions: [FlatButton(onPressed: () {}, child: Text("setting"))],
+          );
+        });
   }
+
+  return true;
 }
